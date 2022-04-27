@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.25.0">
-    <meta name="project" content="Explorer v0.1.0-dev">
+    <meta name="generator" content="ExDoc v0.28.3">
+    <meta name="project" content="Explorer v0.1.1">
 
-    <title>Explorer.Datasets — Explorer v0.1.0-dev</title>
-    <link rel="stylesheet" href="dist/elixir-a172fe91e725dcb259e2.css" />
+    <title>Explorer.Datasets — Explorer v0.1.1</title>
+    <link rel="stylesheet" href="dist/elixir-d5ff82e6b0f5651c0ac0.css" />
 
-    <script src="dist/sidebar_items-c4e249d511.js"></script>
+    <script src="dist/sidebar_items-7a6cde38a5.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-f27ff079945e43879c46.js"></script>
+    <script async src="dist/app-a088a6cc33ae3464193e.js"></script>
 
 
   </head>
@@ -22,27 +22,34 @@
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
-</button>
 
 <section class="sidebar">
+  <button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+    <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+  </button>
+
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
+      <p class="sr-only">Search</p>
       <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
     </label>
   </form>
@@ -53,24 +60,28 @@
   </div>
 
   <div class="sidebar-header">
+
+      <a href="Explorer.html">
+        <img src="assets/logo.png" alt="Explorer" class="sidebar-projectImage">
+      </a>
+
     <div class="sidebar-projectDetails">
-      <a href="Explorer.html" class="sidebar-projectName">
+      <a href="Explorer.html" class="sidebar-projectName" translate="no">
 Explorer
       </a>
-      <strong class="sidebar-projectVersion">
-        v0.1.0-dev
+      <strong class="sidebar-projectVersion" translate="no">
+        v0.1.1
       </strong>
     </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
 
+        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Pages</a></li>
-
-      <li><a id="modules-list-link" href="#full-list">Modules</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
 </section>
@@ -79,77 +90,97 @@ Explorer
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-      <h1>
-Explorer.Datasets <small class="app-vsn">(Explorer v0.1.0-dev)</small>
-
-          <a href="https://github.com/amplifiedai/explorer/blob/v0.1.0-dev/lib/explorer/datasets.ex#L1" title="View Source" class="view-source" rel="help">
-            <span class="icon-code" aria-hidden="true"></span>
-            <span class="sr-only">View Source</span>
-          </a>
-
-      </h1>
+<h1>
+<button class="settings display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
 
+    <a href="https://github.com/elixir-nx/explorer/blob/v0.1.1/lib/explorer/datasets.ex#L1" title="View Source" class="view-source" rel="help">
+      <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+      <span class="sr-only">View Source</span>
+    </a>
 
-        <section id="summary" class="details-list">
-          <h1 class="section-heading">
-            <a class="hover-link" href="#summary">
-              <span class="icon-link" aria-hidden="true"></span>
-              <span class="sr-only">Link to this section</span>
-            </a>
-            Summary
-          </h1>
+  <span translate="no">Explorer.Datasets</span> 
+  <small class="app-vsn" translate="no">(Explorer v0.1.1)</small>
+
+</h1>
+
+
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+        <span class="sr-only">Link to this section</span>
+      </a>
+      Summary
+    </h1>
 
   <div class="summary-functions summary">
     <h2>
       <a href="#functions">Functions</a>
     </h2>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#fossil_fuels/0">fossil_fuels()</a>
 
-  </div>
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#fossil_fuels/0" translate="no">fossil_fuels()</a>
 
-    <div class="summary-synopsis"><p>CO2 emissions from fossil fuels since 2010, by country</p></div>
+        </div>
 
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#wine/0">wine()</a>
+          <div class="summary-synopsis"><p>CO2 emissions from fossil fuels since 2010, by country</p></div>
 
-  </div>
+      </div>
 
-    <div class="summary-synopsis"><p>Wine Dataset - The data is the result of a chemical analysis of wines grown in the same
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#iris/0" translate="no">iris()</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Iris Dataset - This classic dataset was collected by Edgar Anderson in 1936 and made famous by R. A. Fisher's 1936 paper.
+It consists of several measurements of three species of Iris (Iris setosa, Iris virginica and Iris versicolor).</p></div>
+
+      </div>
+
+      <div class="summary-row">
+        <div class="summary-signature">
+          <a href="#wine/0" translate="no">wine()</a>
+
+        </div>
+
+          <div class="summary-synopsis"><p>Wine Dataset - The data is the result of a chemical analysis of wines grown in the same
 region in Italy but derived from three different cultivars. The analysis determined the quantities
 of 13 constituents found in each of the three types of wines.</p></div>
 
-</div>
+      </div>
 
   </div>
 
-        </section>
+  </section>
 
 
-        <section id="functions" class="details-list">
-          <h1 class="section-heading">
-            <a class="hover-link" href="#functions">
-              <span class="icon-link" aria-hidden="true"></span>
-              <span class="sr-only">Link to this section</span>
-            </a>
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+        <span class="sr-only">Link to this section</span>
+      </a>
 Functions
-          </h1>
-          <div class="functions-list">
+    </h1>
+    <div class="functions-list">
 <section class="detail" id="fossil_fuels/0">
 
   <div class="detail-header">
     <a href="#fossil_fuels/0" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
+      <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">fossil_fuels()</h1>
+    <h1 class="signature" translate="no">fossil_fuels()</h1>
 
-      <a href="https://github.com/amplifiedai/explorer/blob/v0.1.0-dev/lib/explorer/datasets.ex#L15" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
+      <a href="https://github.com/elixir-nx/explorer/blob/v0.1.1/lib/explorer/datasets.ex#L15" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
 
@@ -159,7 +190,9 @@ Functions
   <section class="docstring">
 
 <p>CO2 emissions from fossil fuels since 2010, by country</p><h2 id="fossil_fuels/0-citation" class="section-heading">
-  <a href="#fossil_fuels/0-citation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#fossil_fuels/0-citation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">citation</p>
+  </a>
   Citation
 </h2>
 <p>  Boden, T.A., G. Marland, and R.J. Andres. 2013. Global, Regional, and National Fossil-Fuel CO2
@@ -167,17 +200,49 @@ Functions
   Department of Energy, Oak Ridge, Tenn., U.S.A. doi 10.3334/CDIAC/00001_V2013</p>
   </section>
 </section>
+<section class="detail" id="iris/0">
+
+  <div class="detail-header">
+    <a href="#iris/0" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">iris()</h1>
+
+      <a href="https://github.com/elixir-nx/explorer/blob/v0.1.1/lib/explorer/datasets.ex#L51" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Iris Dataset - This classic dataset was collected by Edgar Anderson in 1936 and made famous by R. A. Fisher's 1936 paper.
+It consists of several measurements of three species of Iris (Iris setosa, Iris virginica and Iris versicolor).</p><p>Downloaded and modified from: <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data">https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data</a></p><h2 id="iris/0-citation" class="section-heading">
+  <a href="#iris/0-citation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">citation</p>
+  </a>
+  Citation
+</h2>
+<p>  Original Owners:
+  R. A. Fisher (1936)
+  The use of multiple measurements in taxonomic problems.
+  Annals of Eugenics. 7 (2): 179–188. doi:10.1111/j.1469-1809.1936.tb02137.x</p><p>  Iris. (1936). UCI Machine Learning Repository.</p>
+  </section>
+</section>
 <section class="detail" id="wine/0">
 
   <div class="detail-header">
     <a href="#wine/0" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
+      <i class="ri-link-m" aria-hidden="true"></i>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">wine()</h1>
+    <h1 class="signature" translate="no">wine()</h1>
 
-      <a href="https://github.com/amplifiedai/explorer/blob/v0.1.0-dev/lib/explorer/datasets.ex#L35" class="view-source" rel="help" title="View Source">
-       <span class="icon-code" aria-hidden="true"></span>
+      <a href="https://github.com/elixir-nx/explorer/blob/v0.1.1/lib/explorer/datasets.ex#L34" class="view-source" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
        <span class="sr-only">View Source</span>
      </a>
 
@@ -189,7 +254,9 @@ Functions
 <p>Wine Dataset - The data is the result of a chemical analysis of wines grown in the same
 region in Italy but derived from three different cultivars. The analysis determined the quantities
 of 13 constituents found in each of the three types of wines.</p><p>Downloaded and modified from: <a href="https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data">https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data</a></p><h2 id="wine/0-citation" class="section-heading">
-  <a href="#wine/0-citation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#wine/0-citation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">citation</p>
+  </a>
   Citation
 </h2>
 <p>  Original Owners:
@@ -200,38 +267,31 @@ of 13 constituents found in each of the three types of wines.</p><p>Downloaded a
   </section>
 </section>
 
-          </div>
-        </section>
+    </div>
+  </section>
 
       <footer class="footer">
-        <p>
-          <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.25.0) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
-          </span>
-        </p>
-        <p>
 
-            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+          <p>
+            On Hex.pm:
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button night-mode-toggle">
-            Toggle night mode
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button tooltips-toggle">
-            <span class="tooltips-option-disable">Disable tooltips</span>
-            <span class="tooltips-option-enable">Enable tooltips</span>
-          </button>
+            <span class="line">
+              <a href="https://hex.pm/packages/explorer/0.1.1" class="line footer-hex-package">Package</a>
+              <a href="https://preview.hex.pm/preview/explorer/0.1.1" class="line">Preview</a>
+
+                <a href="https://preview.hex.pm/preview/explorer/0.1.1/show/lib/explorer/datasets.ex">(current file)</a>
+
+            </span>
+
+            <button class="line footer-button display-quick-switch">
+              Search
+            </button>
+          </p>
+
+        <p>
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.28.3) for the
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
         </p>
       </footer>
     </div>
