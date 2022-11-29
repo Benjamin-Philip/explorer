@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.1">
+    <meta name="project" content="Explorer v0.4.0-dev">
+
+    <title>Changelog — Explorer v0.4.0-dev</title>
+    <link rel="stylesheet" href="dist/html-elixir-V2ETBPMB.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-IV5W3OL2.js"></script>
+    <script src="dist/sidebar_items-31AE952A.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/html-XN2TSG4M.js"></script>
+
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="Explorer.html">
+        <img src="assets/logo.png" alt="Explorer" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="Explorer.html" class="sidebar-projectName" translate="no">
+Explorer
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v0.4.0-dev
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+    <a href="https://github.com/elixir-nx/explorer/blob/v0.4.0-dev/CHANGELOG.md#L1" title="View Source" class="icon-action" rel="help">
+      <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+      <span class="sr-only">View Source</span>
+    </a>
+
+
+  <span>Changelog</span>
+</h1>
+
+<p>All notable changes to this project will be documented in this file.</p><p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,
+and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p><h2 id="v0-4-0-to-be-released" class="section-heading">
+  <a href="#v0-4-0-to-be-released" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">v0-4-0-to-be-released</p>
+  </a>
+  <a href="https://github.com/elixir-nx/explorer/compare/v0.3.1...HEAD" title="">v0.4.0</a> - To be released
+</h2>
+<h3 id="added" class="section-heading">
+  <a href="#added" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">added</p>
+  </a>
+  Added
+</h3>
+<ul><li><p>Add <code class="inline">Series.quotient/2</code> and <code class="inline">Series.remainder/2</code> to work with integer division.</p></li><li><p>Add <code class="inline">Series.bintype/1</code> to return the underlying representation type.</p></li><li><p>Allow series on both sides of binary operations, like: <code class="inline">add(series, 1)</code>
+and <code class="inline">add(1, series)</code>.</p></li><li><p>Allow comparison, concat and coalesce operations on &quot;(series, lazy series)&quot;.</p></li><li><p>Add lazy version of <code class="inline">Series.sample/3</code> and <code class="inline">Series.size/1</code>.</p></li><li><p>Add support for Arrow IPC Stream files.</p></li><li><p>Add <a href="Explorer.Query.html"><code class="inline">Explorer.Query</code></a> and the macros that allow a simplified query API.
+This is a huge improvement to some of the main functions, and allow refering to
+columns as they were variables.</p><p>Before this change we would need to write a filter like this:</p><pre><code class="makeup elixir" translate="no"><span class="nc">Explorer.DataFrame</span><span class="o">.</span><span class="n">filter_with</span><span class="p" data-group-id="3451617619-1">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="nc">Explorer.Series</span><span class="o">.</span><span class="n">greater</span><span class="p" data-group-id="3451617619-2">(</span><span class="ni">&amp;1</span><span class="p" data-group-id="3451617619-3">[</span><span class="s">&quot;col1&quot;</span><span class="p" data-group-id="3451617619-3">]</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p" data-group-id="3451617619-2">)</span><span class="p" data-group-id="3451617619-1">)</span></code></pre><p>But now it's also possible to write this operation like this:</p><pre><code class="makeup elixir" translate="no"><span class="nc">Explorer.DataFrame</span><span class="o">.</span><span class="n">filter</span><span class="p" data-group-id="2097615774-1">(</span><span class="n">df</span><span class="p">,</span><span class="w"> </span><span class="n">col1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">42</span><span class="p" data-group-id="2097615774-1">)</span></code></pre><p>This operation is going to use <code class="inline">filter_with/2</code> underneath, which means that
+is going to use lazy series and compute the results at once.
+Notice that is mandatory to &quot;require&quot; the DataFrame module, since these operations
+are implemented as macros.</p><p>The following new macros were added:</p><ul><li><code class="inline">filter/2</code></li><li><code class="inline">mutate/2</code></li><li><code class="inline">summarise/2</code></li><li><code class="inline">arrange/2</code></li></ul><p>They substitute older versions that did not accept the new query syntax.</p></li><li><p>Add <code class="inline">DataFrame.put/3</code> to enable adding or replacing columns in a eager manner.
+This works similar to the previous version of <code class="inline">mutate/2</code>.</p></li><li><p>Add <code class="inline">Series.select/3</code> operation that enables selecting a value
+from two series based on a predicate.</p></li><li><p>Add &quot;dump&quot; and &quot;load&quot; functions to IO operations. They are useful to load
+or dump dataframes from/to memory.</p></li><li><p>Add <code class="inline">Series.to_iovec/2</code> and <code class="inline">Series.to_binary/1</code>. They return the underlying
+representation of series as binary. The first one returns a list of binaries,
+possibly with one element if the series is contiguous in memory. The second one
+returns a single binary representing the series.</p></li><li><p>Add <code class="inline">Series.shift/2</code> that shifts the series by an offset with nil values.</p></li><li><p>Rename <code class="inline">Series.fetch!/2</code> and <code class="inline">Series.take_every/2</code> to <code class="inline">Series.at/2</code>
+and <code class="inline">Series.at_every/2</code>.</p></li><li><p>Add <code class="inline">DataFrame.discard/2</code> to drop columns. This is the opposite of <code class="inline">select/2</code>.</p></li><li><p>Implement <a href="https://hexdocs.pm/nx/0.4.0/Nx.LazyContainer.html"><code class="inline">Nx.LazyContainer</code></a> for <a href="Explorer.DataFrame.html"><code class="inline">Explorer.DataFrame</code></a> and <a href="Explorer.Series.html"><code class="inline">Explorer.Series</code></a>
+so data can be passed into Nx.</p></li></ul><h3 id="changed" class="section-heading">
+  <a href="#changed" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">changed</p>
+  </a>
+  Changed
+</h3>
+<ul><li>Change DataFrame's <code class="inline">to_*</code> functions to return only <code class="inline">:ok</code>.</li><li>Change series inspect to resamble the dataframe inspect with the backend name.</li><li>Rename <code class="inline">Series.var/1</code> to <code class="inline">Series.variance/1</code></li><li>Rename <code class="inline">Series.std/1</code> to <code class="inline">Series.standard_deviation/1</code></li><li>Rename <code class="inline">Series.count/2</code> to <code class="inline">Series.frequencies/1</code> and add a new <code class="inline">Series.count/1</code>
+that returns the size of an &quot;eager&quot; series, or the count of members in a group
+for a lazy series.
+In case there is no groups, it calculates the size of the dataframe.</li><li>Change the option to control direction in <code class="inline">Series.sort/2</code> and <code class="inline">Series.argsort/2</code>.
+Instead of a boolean, now we have a new option called <code class="inline">:direction</code> that accepts
+<code class="inline">:asc</code> or <code class="inline">:desc</code>.</li></ul><h3 id="fixed" class="section-heading">
+  <a href="#fixed" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">fixed</p>
+  </a>
+  Fixed
+</h3>
+<ul><li>Fix the following DataFrame functions to work with groups:<ul><li><code class="inline">filter_with/2</code></li><li><code class="inline">head/2</code></li><li><code class="inline">tail/2</code></li><li><code class="inline">slice/2</code></li><li><code class="inline">slice/3</code></li><li><code class="inline">pivot_longer/3</code></li><li><code class="inline">pivot_wider/4</code></li><li><code class="inline">concat_rows/1</code></li><li><code class="inline">concat_columns/1</code></li></ul></li><li>Improve the documentation of functions that behave differently with groups.</li><li>Fix <code class="inline">arrange_with/2</code> to use &quot;group by&quot; stable, making results more predictable.</li><li>Add <code class="inline">nil</code> as a possible return value of aggregations.</li><li>Fix the behaviour of <code class="inline">Series.sort/2</code> and <code class="inline">Series.argsort/2</code> to add nils at the
+front when direction is descending, or at the back when the direction is ascending.
+This also adds an option to control this behaviour.</li></ul><h3 id="removed" class="section-heading">
+  <a href="#removed" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">removed</p>
+  </a>
+  Removed
+</h3>
+<ul><li>Remove support for <code class="inline">NDJSON</code> read and write for ARM 32 bits targets.
+This is due to a limitation of a dependency of Polars.</li></ul><h2 id="v0-3-1-2022-09-09" class="section-heading">
+  <a href="#v0-3-1-2022-09-09" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">v0-3-1-2022-09-09</p>
+  </a>
+  <a href="https://github.com/elixir-nx/explorer/compare/v0.3.0...v0.3.1" title="">v0.3.1</a> - 2022-09-09
+</h2>
+<h3 id="fixed-1" class="section-heading">
+  <a href="#fixed-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">fixed-1</p>
+  </a>
+  Fixed
+</h3>
+<ul><li>Define <code class="inline">multiply</code> inside <code class="inline">*_with</code> operations.</li><li>Fix column types in several operations, such as <code class="inline">n_distinct</code>.</li></ul><h2 id="v0-3-0-2022-09-01" class="section-heading">
+  <a href="#v0-3-0-2022-09-01" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">v0-3-0-2022-09-01</p>
+  </a>
+  <a href="https://github.com/elixir-nx/explorer/compare/v0.2.0...v0.3.0" title="">v0.3.0</a> - 2022-09-01
+</h2>
+<h3 id="added-1" class="section-heading">
+  <a href="#added-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">added-1</p>
+  </a>
+  Added
+</h3>
+<ul><li><p>Add <code class="inline">DataFrame.concat_columns/1</code> and <code class="inline">DataFrame.concat_columns/2</code> for horizontally stacking
+dataframes.</p></li><li><p>Add compression as an option to write parquet files.</p></li><li><p>Add count metadata to <code class="inline">DataFrame</code> table reader.</p></li><li><p>Add <code class="inline">DataFrame.filter_with/2</code>, <code class="inline">DataFrame.summarise_with/2</code>, <code class="inline">DataFrame.mutate_with/2</code> and
+<code class="inline">DataFrame.arrange_with/2</code>. They all accept a <code class="inline">DataFrame</code> and a function, and they all work with
+a new concept called &quot;lazy series&quot;.</p><p>Lazy Series is an opaque representation of a series that can be
+used to perform complex operations without pulling data from the series. This is faster than
+using masks. There is no big difference from the API perspective compared to the functions that were
+accepting callbacks before (eg. <code class="inline">filter/2</code> and the new <code class="inline">filter_with/2</code>), with the exception being
+<code class="inline">DataFrame.summarise_with/2</code> that now accepts a lot more operations.</p></li></ul><h3 id="changed-1" class="section-heading">
+  <a href="#changed-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">changed-1</p>
+  </a>
+  Changed
+</h3>
+<ul><li>Bump version requirement of the <code class="inline">table</code> dependency to <code class="inline">~&gt; 0.1.2</code>, and raise for non-tabular values.</li><li>Normalize how columns are handled. This changes some functions to accept one column or
+a list of columns, ranges, indexes and callbacks selecting columns.</li><li>Rename <code class="inline">DataFrame.filter/2</code> to <code class="inline">DataFrame.mask/2</code>.</li><li>Rename <code class="inline">Series.filter/2</code> to <code class="inline">Series.mask/2</code>.</li><li>Rename <code class="inline">take/2</code> from both <code class="inline">Series</code> and <code class="inline">DataFrame</code> to <code class="inline">slice/2</code>. <code class="inline">slice/2</code> now they accept ranges as well.</li><li>Raise an error if <code class="inline">DataFrame.pivot_wider/4</code> has float columns as IDs. This is because we can´t
+properly compare floats.</li><li>Change <code class="inline">DataFrame.distinct/2</code> to accept columns as argument instead of receiving it as option.</li></ul><h3 id="fixed-2" class="section-heading">
+  <a href="#fixed-2" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">fixed-2</p>
+  </a>
+  Fixed
+</h3>
+<ul><li>Ensure that we can compare boolean series in functions like <code class="inline">Series.equal/2</code>.</li><li>Fix rename of columns after summarise.</li><li>Fix inspect of float series containing <code class="inline">NaN</code> or <code class="inline">Infinity</code> values. They are represented as atoms.</li></ul><h3 id="deprecated" class="section-heading">
+  <a href="#deprecated" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">deprecated</p>
+  </a>
+  Deprecated
+</h3>
+<ul><li>Deprecate <code class="inline">DataFrame.filter/2</code> with a callback in favor of <code class="inline">DataFrame.filter_with/2</code>.</li></ul><h2 id="v0-2-0-2022-06-22" class="section-heading">
+  <a href="#v0-2-0-2022-06-22" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">v0-2-0-2022-06-22</p>
+  </a>
+  <a href="https://github.com/elixir-nx/explorer/compare/v0.1.1...v0.2.0" title="">v0.2.0</a> - 2022-06-22
+</h2>
+<h3 id="added-2" class="section-heading">
+  <a href="#added-2" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">added-2</p>
+  </a>
+  Added
+</h3>
+<ul><li>Consistently support ranges throughout the columns API</li><li>Support negative indexes throughout the columns API</li><li>Integrate with the <code class="inline">table</code> package</li><li>Add <code class="inline">Series.to_enum/1</code> for lazily traversing the series</li><li>Add <code class="inline">Series.coalesce/1</code> and <code class="inline">Series.coalesce/2</code> for finding the first non-null value in a list of series</li></ul><h3 id="changed-2" class="section-heading">
+  <a href="#changed-2" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">changed-2</p>
+  </a>
+  Changed
+</h3>
+<ul><li><code class="inline">Series.length/1</code> is now <code class="inline">Series.size/1</code> in keeping with Elixir idioms</li><li><a href="https://hexdocs.pm/nx/0.4.0/Nx.html"><code class="inline">Nx</code></a> is now an optional dependency</li><li>Minimum Elixir version is now 1.13</li><li><code class="inline">DataFrame.to_map/2</code> is now <code class="inline">DataFrame.to_columns/2</code> and <code class="inline">DataFrame.to_series/2</code></li><li><a href="https://hexdocs.pm/rustler/0.26.0/Rustler.html"><code class="inline">Rustler</code></a> is now an optional dependency</li><li><code class="inline">read_</code> and <code class="inline">write_</code> IO functions are now <code class="inline">from_</code> and <code class="inline">to_</code></li><li><code class="inline">to_binary</code> is now <code class="inline">dump_csv</code></li><li>Now uses <code class="inline">polars</code>'s &quot;simd&quot; feature</li><li>Now uses <code class="inline">polars</code>'s &quot;performant&quot; feature</li><li><code class="inline">Explorer.default_backend/0</code> is now <a href="Explorer.Backend.html#get/0"><code class="inline">Explorer.Backend.get/0</code></a></li><li><code class="inline">Explorer.default_backend/1</code> is now <a href="Explorer.Backend.html#put/1"><code class="inline">Explorer.Backend.put/1</code></a></li><li><code class="inline">Series.cum_*</code> functions are now <code class="inline">Series.cumulative_*</code> to mirror <a href="https://hexdocs.pm/nx/0.4.0/Nx.html"><code class="inline">Nx</code></a></li><li><code class="inline">Series.rolling_*</code> functions are now <code class="inline">Series.window_*</code> to mirror <a href="https://hexdocs.pm/nx/0.4.0/Nx.html"><code class="inline">Nx</code></a></li><li><code class="inline">reverse?</code> is now an option instead of an argument in <code class="inline">Series.cumulative_*</code> functions</li><li><code class="inline">DataFrame.from_columns/2</code> and <code class="inline">DataFrame.from_rows/2</code> is now <code class="inline">DataFrame.new/2</code></li><li>Rename &quot;col&quot; to &quot;column&quot; throughout the API</li><li>Remove &quot;with_&quot; prefix in options throughout the API</li><li><code class="inline">DataFrame.table/2</code> accepts options with <code class="inline">:limit</code> instead of single integer</li><li><code class="inline">rename/2</code> no longer accepts a function, use <code class="inline">rename_with/2</code> instead</li><li><code class="inline">rename_with/3</code> now expects the function as the last argument</li></ul><h3 id="fixed-3" class="section-heading">
+  <a href="#fixed-3" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">fixed-3</p>
+  </a>
+  Fixed
+</h3>
+<ul><li>Explorer now works on Linux with musl</li></ul><h2 id="v0-1-1-2022-04-27" class="section-heading">
+  <a href="#v0-1-1-2022-04-27" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">v0-1-1-2022-04-27</p>
+  </a>
+  <a href="https://github.com/elixir-nx/explorer/compare/v0.1.0...v0.1.1" title="">v0.1.1</a> - 2022-04-27
+</h2>
+<h3 id="security" class="section-heading">
+  <a href="#security" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">security</p>
+  </a>
+  Security
+</h3>
+<ul><li>Updated Rust dependencies to address Dependabot security alerts: <a href="https://github.com/elixir-nx/explorer/security/dependabot/1">1</a>, <a href="https://github.com/elixir-nx/explorer/security/dependabot/3">2</a>, <a href="https://github.com/elixir-nx/explorer/security/dependabot/4">3</a></li></ul><h2 id="v0-1-0-2022-04-26" class="section-heading">
+  <a href="#v0-1-0-2022-04-26" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">v0-1-0-2022-04-26</p>
+  </a>
+  <a href="https://github.com/elixir-nx/explorer/releases/tag/v0.1.0" title="">v0.1.0</a> - 2022-04-26
+</h2>
+<p>First release.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="exploring_explorer.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Ten Minutes to Explorer
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+            <span class="line">
+              <a href="https://hex.pm/packages/explorer/0.4.0-dev" class="footer-hex-package">Hex Package</a>
+
+              <a href="https://preview.hex.pm/preview/explorer/0.4.0-dev">Hex Preview</a>
+
+                (<a href="https://preview.hex.pm/preview/explorer/0.4.0-dev/show/CHANGELOG.md">current file</a>)
+
+            </span>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+              <a href="Explorer.epub" title="ePub version">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.1) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
